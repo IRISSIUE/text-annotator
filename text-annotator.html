@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRIS Text Annotator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="work-container">
+        <div class="header">
+            <div class="title">The New Colossus</div>
+            <div class="author">by Emma Lazarus</div>
+            <div class="annotator">Annotated by Esther Schor</div>
+        </div>
+
+        <div class="text-container">
+            <p>
+                Not like the
+                <span class="annotation-trigger" data-annotation-id="brazen-giant"
+                    data-custom-style="huge-bold-cap">Brazen
+                    Giant</span>
+                of
+                <span class="annotation-trigger" data-annotation-id="greek-fame"
+                    data-custom-style="style=bold-cap">Greek Fame</span>,
+                With conquering limbs astride from land to land;
+
+                You can click on the highlighted text to reveal more information.
+                Annotations can contain <span class="annotation-trigger" data-annotation-id="ann-2"
+                    data-custom-style="blue-theme">formatted text, images, and even videos</span>.
+            </p>
+            <p>
+                The goal is to provide a seamless reading experience where additional context is available
+                <span class="annotation-trigger" data-annotation-id="ann-3"
+                    style="--trigger-color: #e91e63; --trigger-bg: rgba(233, 30, 99, 0.1);">exactly where it's
+                    needed</span>.
+            </p>
+        </div>
+
+        <!-- Annotation Templates (Hidden by default) -->
+        <template id="brazen-giant">
+            <div class="annotation-content">
+                <h3>About Annotators</h3>
+                <p>An annotator is a tool or element used to provide additional information, notes, or comments on a
+                    specific part of a text or document.</p>
+                <p>In this implementation, they expand <strong>inline</strong> to keep the reader's focus.</p>
+            </div>
+        </template>
+
+        <template id="greek-fame">
+            <div class="annotation-content">
+                <p>Emma Lazarus had no time for Greek sun-gods. Still in her teens, she wrote long, narrative poems in
+                    which Apollo is a sexual predator, terrifying maidens who forfeit their humanity to escape the
+                    sun-god's clutches. The panicked Daphne became a laurel; Clytie, a sunflower.</p>
+            </div>
+        </template>
+
+        <template id="ann-2">
+            <div class="annotation-content media-content">
+                <h3>Rich Media Support</h3>
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image" class="float-left">
+                <p>You can wrap text around images easily. This allows for a more visual explanation of concepts without
+                    breaking the flow too much.</p>
+                <p>Videos can also be embedded:</p>
+                <div class="video-container">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </template>
+
+        <template id="ann-3">
+            <div class="annotation-content">
+                <h3>Contextual Delivery</h3>
+                <p>By placing the information right below the line, we minimize the cognitive load of switching between
+                    different parts of the page or opening new tabs.</p>
+            </div>
+        </template>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
