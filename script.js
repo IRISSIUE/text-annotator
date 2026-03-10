@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const triggers = document.querySelectorAll(".annotation-trigger");
+  const triggers = document.querySelectorAll(".annotation-link");
 
   triggers.forEach((trigger) => {
     trigger.addEventListener("click", function () {
@@ -53,7 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
     void container.offsetHeight;
 
     container.classList.add("open");
-    container.style.maxHeight = container.scrollHeight + "px";
+    // Use a small delay or requestAnimationFrame to ensure the DOM has rendered the content
+    // and correctly calculated scrollHeight, especially if it contains images.
+    requestAnimationFrame(() => {
+      container.style.maxHeight = container.scrollHeight + "px";
+    });
   }
 
   function closeAnnotation(trigger) {

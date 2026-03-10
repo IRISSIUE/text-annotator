@@ -1,12 +1,14 @@
 body {
     font-family: Verdana, sans-serif;
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 1.1;
     color: #333;
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
     background-color: #f9f9f9;
+    --trigger-color: #93871e;
+    --trigger-bg: #e0d78e;
 }
 
 .work-container {
@@ -47,41 +49,40 @@ body {
     font-size: 1.1rem;
 }
 
-.annotation-trigger {
-    --trigger-color: #827717;
-    --trigger-bg: rgba(255, 235, 59, 0.2);
-    --trigger-border: #fbc02d;
-
-    background-color: var(--trigger-bg);
-    border-bottom: 2px dashed var(--trigger-border);
+.annotation-link {
     cursor: pointer;
     transition: all 0.2s ease;
     padding: 0 4px;
     margin: 0 -2px;
-    border-radius: 4px;
     font-weight: 500;
     color: inherit;
 }
 
-.annotation-trigger:hover {
-    background-color: var(--trigger-bg);
+.annotation-link:hover, .annotation-link.active {
+    color: var(--trigger-color);
     filter: brightness(0.9);
-    border-bottom-style: solid;
 }
 
-.annotation-trigger.active {
-    background-color: var(--trigger-border);
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.annotation-link[data-custom-style="giant-bold-theme"] {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 1000;
 }
 
-.annotation-trigger[data-custom-style="green-theme"] {
-    --trigger-color: #2e7d32;
+.annotation-link[data-custom-style="large-compressed-uppercase-theme"] {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-stretch: condensed;
+    letter-spacing: -1.5px;
+}
+
+.annotation-link[data-custom-style="green-theme"] {
+    --trigger-color: var(--trigger-bg);
     --trigger-bg: rgba(76, 175, 80, 0.1);
-    --trigger-border: #4caf50;
 }
 
-.annotation-trigger[data-custom-style="blue-theme"] {
+.annotation-link[data-custom-style="blue-theme"] {
     --trigger-color: #1565c0;
     --trigger-bg: rgba(33, 150, 243, 0.1);
     --trigger-border: #2196f3;
@@ -89,9 +90,7 @@ body {
 
 /* Annotation Container Styling (using variables) */
 .annotation-container {
-    --accent-color: #fbc02d;
-    --bg-color: #fffdf5;
-
+    --bg-color: var(--trigger-bg);
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 opacity 0.3s ease-out, 
@@ -100,9 +99,10 @@ body {
     max-height: 0;
     opacity: 0;
     background-color: var(--bg-color);
-    border-left: 5px solid var(--accent-color);
     margin: 0;
-    padding: 0 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 0.7rem;
     box-sizing: border-box;
     box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
 }
@@ -110,18 +110,6 @@ body {
 .annotation-container.open {
     opacity: 1;
     margin: 10px 0 25px 0;
-    padding: 20px 25px;
-}
-
-/* Custom Container Themes */
-.annotation-container.green-theme {
-    --accent-color: #4caf50;
-    --bg-color: #f1f8e9;
-}
-
-.annotation-container.blue-theme {
-    --accent-color: #2196f3;
-    --bg-color: #e3f2fd;
 }
 
 .annotation-content {
@@ -147,8 +135,6 @@ body {
     float: left;
     max-width: 40%;
     margin: 0 20px 15px 0;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .video-container {
