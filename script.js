@@ -1,8 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const triggers = document.querySelectorAll(".annotation-link");
+  const annotationLinks = document.querySelectorAll(".annotation-link");
 
-  triggers.forEach((trigger) => {
-    trigger.addEventListener("click", function () {
+  // Move all annotation containers to their respective links
+  const containers = document.querySelectorAll(".annotation-container");
+  containers.forEach((container) => {
+    const id = container.id;
+    const annotationLinkId = document.querySelector(
+      `.annotation-link[data-annotation-id="${id}"]`,
+    );
+    if (annotationLinkId) {
+      // Find the parent paragraph or block element of the trigger
+      const parentElement =
+        annotationLinkId.closest("p, div, blockquote, li") || annotationLinkId;
+      // Insert the container right after that block element
+      parentElement.after(container);
+    }
+  });
+
+  // Add click event listeners to annotation links
+  annotationLinks.forEach((aLink) => {
+    aLink.addEventListener("click", function () {
       const annotationId = this.getAttribute("data-annotation-id");
       const isActive = this.classList.contains("active");
 
@@ -65,13 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       { once: true },
     );
-  }
-
-  function closeAllAnnotations() {
-    document
-      .querySelectorAll(".annotation-trigger.active")
-      .forEach((trigger) => {
-        closeAnnotation(trigger);
-      });
   }
 });
