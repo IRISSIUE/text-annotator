@@ -14,6 +14,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Close annotations when clicking outside
+  document.addEventListener("click", (event) => {
+    const activeTriggers = document.querySelectorAll(".annotation-link.active");
+
+    activeTriggers.forEach((trigger) => {
+      const annotationId = trigger.getAttribute("data-annotation-id");
+      const container = document.getElementById(annotationId);
+
+      // If the click was not on the trigger itself and not inside the container
+      if (
+        container &&
+        !trigger.contains(event.target) &&
+        !container.contains(event.target)
+      ) {
+        closeAnnotation(trigger, annotationId);
+      }
+    });
+  });
+
   function openAnnotation(trigger, id) {
     const container = document.getElementById(id);
     if (!container) return;
