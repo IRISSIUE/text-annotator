@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRIS Text Annotator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Data Provider Interface -->
+    <script src="data-provider.js"></script>
+    <!-- Dynamic Content Generator -->
+    <script src="dynamic-generator.js"></script>
+</head>
+
+<body>
+    <div class="work-container">
+        <div class="header">
+            <div id="title" class="title">Dynamic Text Annotator</div>
+            <div id="author" class="author">System Generated</div>
+            <div id="annotator" class="annotator">Interdisciplinary Research and Informatics Scholarship Center</div>
+        </div>
+
+        <!-- This container is dynamically populated by dynamic-generator.js -->
+        <div class="text-container">
+            <p>Loading poem data...</p>
+        </div>
+
+        <!-- Hidden reservoir for annotations before they are reparented -->
+        <div id="annotations-reservoir" style="display: none;"></div>
+    </div>
+</body>
+
+</html>
