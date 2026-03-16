@@ -1,6 +1,13 @@
+import { DataService, MockDataProvider } from "./data-provider.js";
+import { GoogleSheetsProvider } from "./google-sheets-provider.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("DOM fully loaded and parsed. Initializing annotation system...");
-  const service = new DataService(MockDataProvider);
+
+  // Toggle between providers as needed
+  const service = new DataService(GoogleSheetsProvider);
+  // const service = new DataService(MockDataProvider);
+
   const data = await service.getProjectData();
 
   injectDynamicStyles(data.styles);
@@ -50,7 +57,7 @@ function buildAnnotations(annotations) {
     container.className = "annotation-container clearfix";
 
     let mediaHtml = "";
-    if (ann.mediaUrl) {
+    if (ann.mediaUrl && ann.mediaUrl.trim() !== "") {
       if (ann.mediaUrl.includes("youtube.com")) {
         mediaHtml = `
                     <div class="video-container ${ann.mediaPosition}">
@@ -63,7 +70,6 @@ function buildAnnotations(annotations) {
 
     container.innerHTML = `
             <div class="annotation-content">
-                ${ann.title ? `<h3>${ann.title}</h3>` : ""}
                 ${mediaHtml}
                 <p>${ann.content}</p>
             </div>
@@ -77,8 +83,9 @@ function renderMetadata(metadata) {
   const authorEl = document.getElementById("author");
   const annotatorEl = document.getElementById("annotator");
   if (titleEl) titleEl.textContent = metadata.title || "";
-  if (authorEl) authorEl.textContent = metadata.author || "";
-  if (annotatorEl) annotatorEl.textContent = metadata.annotator || "";
+  if (authorEl) authorEl.textContent = "By " + metadata.author || "";
+  if (annotatorEl)
+    annotatorEl.textContent = "Annotated by " + metadata.annotator || "";
 }
 
 /**

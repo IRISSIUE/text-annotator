@@ -1,5 +1,5 @@
 // Factory to create a data provider (excel, google, or mock for now)
-class DataService {
+export class DataService {
   constructor(provider) {
     this.provider = provider;
   }
@@ -17,7 +17,7 @@ class DataService {
 }
 
 // Mock Provider for demonstration (can be replaced with Excel or Google Sheets provider)
-const MockDataProvider = {
+export const MockDataProvider = {
   async getMetadata() {
     return {
       title: "The New Colossus",

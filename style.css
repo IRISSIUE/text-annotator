@@ -63,56 +63,6 @@ body {
     filter: brightness(0.9);
 }
 
-.annotation-link[data-custom-style="giant-bold-theme"] {
-    font-size: 2rem;
-    text-transform: uppercase;
-    font-weight: 1000;
-}
-
-.annotation-link[data-custom-style="large-compressed-uppercase-theme"] {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-stretch: condensed;
-    letter-spacing: -1.5px;
-}
-
-.annotation-link[data-custom-style="bold-stretched-uppercase-theme"] {
-    font-size: .9rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-stretch: stretched;
-    letter-spacing: 1.2px;
-}
-
-.annotation-link[data-custom-style="thin-slant-uppercase-theme"] {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: 100;
-    letter-spacing: 1.2px;
-    font-style: italic;
-}
-
-.annotation-link[data-custom-style="thick-lower-theme"] {
-    font-size: 2.2rem;
-    text-transform: lowercase;
-    font-weight: 1000;
-    letter-spacing: 1.2px;
-}
-
-
-.annotation-link[data-custom-style="green-theme"] {
-    --trigger-color: var(--trigger-bg);
-    --trigger-bg: rgba(76, 175, 80, 0.1);
-}
-
-.annotation-link[data-custom-style="blue-theme"] {
-    --trigger-color: #1565c0;
-    --trigger-bg: rgba(33, 150, 243, 0.1);
-    --trigger-border: #2196f3;
-}
-
-/* Annotation Container Styling (using variables) */
 .annotation-container {
     --bg-color: var(--trigger-bg);
     overflow: hidden;
@@ -145,15 +95,6 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-.annotation-content h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    color: #827717;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
 }
 
 /* Media handling */
