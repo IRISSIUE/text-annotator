@@ -1,8 +1,8 @@
 /*
-  google-sheet-config.js contains configuration for the Google Sheet used to create the scrolly story.
+  google-sheet-config.js contains configuration for the Google Sheet used to create the text to annotate.
 */
 
-// The Google Sheet below is a template. You can copy it to your Google Drive and use it to create your own scroll story.
+// The Google Sheet below is a template. You can copy it to your Google Drive and use it to create your own annotation text.
 // You must publish your version of the sheet to the web for it to be accessible by the Google Sheets API
 // so it can be read by this app.
 // Google Sheet File menu -> Share-> Publish to Web -> Publish Entire Document as Web Page
@@ -15,7 +15,7 @@ export const googleSheetURL =
   "https://docs.google.com/spreadsheets/d/1lNXzjHu9DKY-8m_1WKwljVBqW5ByK_DRgN4lwLSlIwU";
 
 // An API Key is required to read a google sheet from an application. The one below is for this version
-// of the application, you will need to generate your own key if you plan to publish this scrolly story on
+// of the application, you will need to generate your own key if you plan to publish this annotation text on
 // your own standalone site.
 // To generate your own key:
 // 1. Go to https://console.developers.google.com
